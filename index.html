@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorpresa Canina</title>
+    <style>
+        /* Centrare il contenuto nella pagina */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    
+    <input type="text" id="inputText" placeholder="Scrivi qui..." oninput="checkInput()">
+
+    <!-- Pulsante di download, inizialmente nascosto -->
+    <button id="downloadButton" style="display: none;" onclick="downloadFile()">Scarica Sorpresa</button>
+
+    <script>
+        function checkInput() {
+            var inputText = document.getElementById('inputText').value;
+            var downloadButton = document.getElementById('downloadButton');
+
+            // Mostra il pulsante se l'input è "cane"
+            if (inputText.toLowerCase() === 'milanista') {
+                downloadButton.style.display = 'block';
+            } else {
+                downloadButton.style.display = 'none';
+            }
+        }
+
+        function downloadFile() {
+            // Simula il download di un file chiamato sorpresa.mp4
+            var element = document.createElement('a');
+            element.setAttribute('href', 'sorpresa.mp4');
+            element.setAttribute('download', 'sorpresa.mp4');
+
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>
